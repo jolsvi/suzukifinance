@@ -1,0 +1,142 @@
+
+<html ng-app="sideMenuTest">
+  <head>
+    <meta charset="utf-8">
+    <title>Side Menus</title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/ionic.css">
+    <script src="js/ionic.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-animate.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/angular-touch.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script src="js/ionic-angular.js"></script>
+  </head>
+  <body>
+
+    <div ng-controller="MenuCtrl">
+      <side-menus>
+        <pane side-menu-content>
+          <header class="bar bar-header bar-assertive">
+            <button class="button button-icon" ng-click="openLeft()"><i class="icon ion-navicon-round"></i></button>
+            <div class="title">  <img src="img/logo.png"/></div>
+          </header>
+          <div class="content has-header">
+            
+            <div class="list list-inset">
+                
+                    <legend>Cek Status</legend>
+                    
+                    <label>Tipe Motor :</label>
+                    <input class="input-text read-only" type="text" placeholder="MIS-TBN-001">
+                    
+                    <label>Periode Order :</label>
+                    <input class="input-text read-only" type="text" placeholder="3 Februari 2014">
+                    
+                    <label>Sampai Tanggal :</label>
+                    <input class="input-text read-only" type="text" placeholder="3 Februari 2015">                                
+                    
+                    
+              <div class="padding">              	
+              	<button class="button button-block button-negative" onClick="location.href='status-3.html';">CEK STATUS</button>               
+              </div>
+                
+            </div>
+          </div>
+          <div class="bar bar-footer blue">
+            <div class="title">
+              <h6 class="white" >Suzuki Finance Indonesia</h6></div>
+          </div>
+        </pane>
+        <side-menu side="left" class="blue-light">
+          <header class="bar bar-header bar-assertive-left blue-light">
+            <button class="button-icon"><i class="icon ion-person-stalker white"></i></button>
+            Admin
+          </header>
+          <content has-header="true">
+            <div class="list">
+            
+              <a class="item item-icon-left blue-light border-white" href="order.html">
+                <i class="icon ion-email white"></i>
+                Input Order
+              </a>
+              <a class="item item-icon-left blue-light border-white" href="status.html">
+                <i class="icon ion-chatbubble-working"></i>
+                Check Status
+              </a>
+              <a class="item item-icon-left blue-light border-white" href="#">
+                <i class="icon ion-mic-a"></i>
+                Report
+                <span class="badge badge-assertive">2</span>
+              </a>
+              <a class="item item-icon-left blue-light border-white" href="#">
+                <i class="icon ion-person-stalker"></i>
+                Informasi
+                
+              </a>
+              <a class="item item-icon-left blue-light border-white" href="#">
+                <i class="icon ion-person-stalker"></i>
+                Create Supervisor
+              </a>
+              <a class="item item-icon-left blue-light border-white" href="#">
+                <i class="icon ion-person-stalker"></i>
+                Create User
+              </a>
+
+            </div>
+          </content>
+        </side-menu>
+      </side-menus>
+
+    </div>
+    <script>
+      angular.module('sideMenuTest', ['ionic'])
+      .controller('MenuCtrl', function($scope) {
+        $scope.list = [];
+        for(var i = 0; i < 20; i++) {
+          $scope.list.push({
+            text: 'Item ' + i
+          });
+        }
+        $scope.openLeft = function() {
+          $scope.sideMenuController.toggleLeft();
+        };
+      });
+      angular.module('LoadingApp', ['ionic'])
+
+      .controller('LoadingCtrl', ['$scope', 'Loading', function($scope, Loading) {
+
+        // Trigger the loading indicator
+        $scope.show = function() {
+
+          // Show the loading overlay and text
+          $scope.loading = Loading.show({
+
+            // The text to display in the loading indicator
+            content: 'Loading',
+
+            // The animation to use
+            animation: 'fade-in',
+
+            // Will a dark overlay or backdrop cover the entire view
+            showBackdrop: true,
+
+            // The maximum width of the loading indicator
+            // Text will be wrapped if longer than maxWidth
+            maxWidth: 200,
+
+            // The delay in showing the indicator
+            showDelay: 500
+          });
+        };
+        // Hide the loading indicator
+        $scope.hide = function(){
+          $scope.loading.hide();
+        };
+      }]);
+    </script>
+  </body>
+</html>

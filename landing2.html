@@ -1,0 +1,74 @@
+
+<html lang="it" ng-app="uxiedex">
+  <head>
+    <meta charset="utf-8">
+    <title>Uxie Dex</title>
+    <!-- apple ios web content -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Uxie Dex">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+    <link rel="apple-touch-icon" sizes="120x120" href="http://uxiedex.altervista.org/resources/icon/ios/icon-60-2x.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="http://uxiedex.altervista.org/resources/icon/ios/icon-76-2x.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="http://uxiedex.altervista.org/resources/screen/ios/screen-iphone-portrait-2x.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="http://uxiedex.altervista.org/resources/screen/ios/screen-iphone-portrait-568h-2x.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="http://uxiedex.altervista.org/resources/screen/ios/screen-ipad-portrait-2x.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="http://uxiedex.altervista.org/resources/screen/ios/screen-ipad-landscape-2x.png">
+    <link rel="stylesheet" type="text/css" href="http://uxiedex.altervista.org/css/ionic.css">
+    <link rel="stylesheet" type="text/css" href="http://uxiedex.altervista.org/css/themes/ionic-ios7.css">
+    <link rel="stylesheet" type="text/css" href="http://uxiedex.altervista.org/css/themes/ionic-omicron.css">
+    <script src="http://uxiedex.altervista.org/js/ionic/ionic.js"></script>
+    <script src="http://uxiedex.altervista.org/js/angular/angular.js"></script>
+    <script src="http://uxiedex.altervista.org/js/angular/angular-animate.js"></script>
+    <script src="http://uxiedex.altervista.org/js/angular/angular-cookies.js"></script>
+    <script src="http://uxiedex.altervista.org/js/angular/angular-loader.js"></script>
+    <script src="http://uxiedex.altervista.org/js/angular/angular-mocks.js"></script>
+    <script src="http://uxiedex.altervista.org/js/angular/angular-resource.js"></script>
+    <script src="http://uxiedex.altervista.org/js/angular/angular-route.js"></script>
+    <script src="http://uxiedex.altervista.org/js/angular/angular-sanitize.js"></script>
+    <script src="http://uxiedex.altervista.org/js/angular/angular-scenario.js"></script>
+    <script src="http://uxiedex.altervista.org/js/angular/angular-touch.js"></script>
+    <script src="http://uxiedex.altervista.org/js/angular/angular-translate.js"></script>
+    <script src="http://uxiedex.altervista.org/js/angular/angular-ui-router.js"></script>
+    <script src="http://uxiedex.altervista.org/js/ionic/ionic-angular.js"></script>
+    <script src="http://uxiedex.altervista.org/js/omicron/omicron.js"></script>
+    <script src="http://uxiedex.altervista.org/js/omicron/omicron-angular.js"></script>
+    <script src="http://uxiedex.altervista.org/js/app.js"></script>
+    <!-- desktop web content -->
+    <link rel="stylesheet" type="text/css" href="http://uxiedex.altervista.org/css/styles.css">
+    <script type="text/javascript" src="http://uxiedex.altervista.org/js/global.js"></script>
+  </head>
+  <body ios-detect ng-controller="coreMain">
+    <side-menus>
+      <fade-bar ios-detect></fade-bar>
+      <pane nav-router animation="slide-left-right-ios7" side-menu-content>
+        <nav-bar animation="nav-title-slide-ios7" type="bar-uxiegreen" back-button-type="button-icon" back-button-icon="icon ion-ios7-arrow-back" back-button-label="Indietro"></nav-bar>
+        <nav-view></nav-view>
+      </pane>
+      <side-menu side="right">
+        <header class="bar bar-header bar-uxiedark item-input">
+          <label class="item-input-wrapper">
+            <i class="icon ion-ios7-search-strong placeholder-icon"></i>
+            <input type="search" placeholder="Cerca" autocorrect="off">
+          </label>
+          <button class="button button-icon icon ion-home" ng-click="toggleMenu()"></button>
+        </header>
+        <content has-header="true">
+          <list>
+            <div class="item-divider" translate>sideMenu.ENCICLOPEDIA</div>
+            <a class="item" ui-sref="pokemons" ng-click="toggleMenu()" translate>sideMenu.POKEMON</a>
+            <a class="item" ui-sref="moves" ng-click="toggleMenu()" translate>sideMenu.MOSSE</a>
+            <a class="item" ui-sref="abilities" ng-click="toggleMenu()" translate>sideMenu.ABILITA</a>
+            <a class="item l" ui-sref="regions" ng-click="toggleMenu()" translate>sideMenu.REGIONI</a>
+            <div class="item-divider" translate>sideMenu.BATTLING_COMPETITIVO</div>
+            <a class="item l" ui-sref="calculator" ng-click="toggleMenu()" translate>sideMenu.CALCOLATORE</a>
+            <div class="item-divider" translate>sideMenu.ALTRO</div>
+            <a class="item" ui-sref="settings" ng-click="toggleMenu()" translate>sideMenu.IMPOSTAZIONI</a>
+            <a class="item" ui-sref="faqs" ng-click="toggleMenu()" translate>sideMenu.FAQ</a>
+          </list>
+        </content>
+      </side-menu>
+    </side-menus>
+  </body>
+</html>
